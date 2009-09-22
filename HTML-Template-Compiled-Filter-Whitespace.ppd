@@ -1,0 +1,9 @@
+<SOFTPKG NAME="HTML-Template-Compiled-Filter-Whitespace" VERSION="0,08,0,0">
+    <TITLE>HTML-Template-Compiled-Filter-Whitespace</TITLE>
+    <ABSTRACT>HTML::Template::Compiled::Filter::Whitespace - whitespace filter for HTML output</ABSTRACT>
+    <AUTHOR>Steffen Winkler &lt;steffenw at cpan.org&gt;, Volker Voit &lt;volker.voit at googlemail.com&gt;</AUTHOR>
+    <IMPLEMENTATION>
+        <DEPENDENCY NAME="Perl6-Export-Attrs" VERSION="0,0,0,0" />
+        <CODEBASE HREF="PPM-HTML-Template-Compiled-Filter-Whitespace-0.08.tar.gz" />
+    </IMPLEMENTATION>
+</SOFTPKG>
