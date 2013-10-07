@@ -13,6 +13,9 @@ BEGIN {
 my $unclean_html = <<'EOT';
 <html>
  <body>
+  <select name="select" size="10">
+   <option value="value="text  n">text  n</option>
+  </select>
 
 <pre>
  xxx
@@ -26,6 +29,9 @@ EOT
 my $clean_html = <<'EOT';
 <html>
 <body>
+<select name="select" size="10">
+<option value="value="text  n">text n</option>
+</select>
 <pre>
  xxx
 
