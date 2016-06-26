@@ -7,8 +7,8 @@ use Cwd qw(getcwd);
 use File::Find;
 use Test::More;
 
-$ENV{TEST_AUTHOR}
-    or plan( skip_all => 'Author test. Set $ENV{TEST_AUTHOR} to a true value to run.' );
+$ENV{AUTHOR_TESTING}
+    or plan( skip_all => 'Author test. Set $ENV{AUTHOR_TESTING} to a true value to run.' );
 
 my $UNTAINT_FILENAME_PATTERN = qr{\A (
     (?:
@@ -32,8 +32,6 @@ find(
                 | / \.git /
                 | / \.gitignore \z
             }xms and return;
-            $File::Find::name =~ m{\. mo \z}xms
-                and return;
             $File::Find::name =~ m{
                 (
                     (?: /lib/ | /example/ | /t/ )

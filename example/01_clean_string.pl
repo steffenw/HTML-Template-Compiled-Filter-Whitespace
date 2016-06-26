@@ -1,4 +1,4 @@
-#!perl
+#!perl ## no critic (TidyCode)
 
 use strict;
 use warnings;
@@ -32,7 +32,7 @@ EOT
 
 {
     local $HTML::Template::Compiled::Filter::Whitespace::DEBUG = 1;
-    ) = print "Filter swichted temporary off.\n",
+    () = print "Filter swichted temporary off.\n",
           "------------------------------\n",
           whitespace_filter($unclean_html),
           "\n";

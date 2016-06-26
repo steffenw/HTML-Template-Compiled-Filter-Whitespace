@@ -1,4 +1,4 @@
-#!perl
+#!perl ## no critic (TidyCode)
 
 use strict;
 use warnings;
@@ -24,10 +24,10 @@ my $template = <<'EOT';
 EOT
 
 my $htc = HTML::Template::Compiled->new(
-    tagstyle  => [qw(-classic -comment +asp)],
+    tagstyle  => [ qw( -classic -comment +asp ) ],
     scalarref => \$template,
 );
 $htc->param(param => "parameter \n \n         param");
-() = print whitespace_filter( $htc->output() );
+() = print whitespace_filter( $htc->output );
 
 # $Id$

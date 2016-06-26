@@ -1,12 +1,16 @@
-package HTML::Template::Compiled::Filter::Whitespace;
+package HTML::Template::Compiled::Filter::Whitespace; ## no critic (TidyCode)
 
 use strict;
 use warnings;
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
-use Perl6::Export::Attrs;
+use parent qw( Exporter::Tiny );
 
+our @EXPORT_OK = qw(
+    get_whitespace_filter
+    whitespace_filter
+);
 our $DEBUG;
 
 my $inplace_whitespace_filter = sub {
@@ -41,11 +45,11 @@ my $inplace_whitespace_filter = sub {
     return;
 };
 
-sub get_whitespace_filter :Export() {
+sub get_whitespace_filter {
     return $inplace_whitespace_filter;
 }
 
-sub whitespace_filter :Export() {
+sub whitespace_filter {
     my $html = shift;
 
     $inplace_whitespace_filter->(\$html);
@@ -67,7 +71,7 @@ HTML::Template::Compiled::Filter::Whitespace - whitespace filter for HTML output
 
 =head1 VERSION
 
-0.08
+0.09
 
 =head1 SYNOPSIS
 
@@ -84,7 +88,7 @@ parsing you can use the function get_whitespace_filter:
 
     my $htc = HTML::Template::Compiled->new(
         tagstyle  => [qw(-classic -comment +asp)],
-        filter    => get_whitespace_filter(),
+        filter    => get_whitespace_filter,
         scalarref => \$scalar,
     );
 
@@ -93,7 +97,7 @@ do both or only this:
 
     use HTML::Template::Compiled::Filter::Whitespace qw(whitespace_filter);
 
-    my $clean_html = whitespace_filter( $htc->output() );
+    my $clean_html = whitespace_filter( $htc->output );
 
 If you want to disable the filter set the global variable DEBUG to something true.
 
@@ -131,7 +135,7 @@ none
 
 =head1 DEPENDENCIES
 
-L<Perl6::Export::Attrs>
+L<Exporter::Tiny|Exporter::Tiny>
 
 =head1 INCOMPATIBILITIES
 
@@ -143,7 +147,7 @@ not known
 
 =head1 SEE ALSO
 
-L<HTML::Template::Compiled>
+L<HTML::Template::Compiled|HTML::Template::Compiled>
 
 =head1 AUTHOR
 
@@ -151,7 +155,7 @@ Steffen Winkler
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright (c) 2007 - 2009,
+Copyright (c) 2007 - 2016,
 Steffen Winkler
 C<< <steffenw at cpan.org> >>,
 Volker Voit
@@ -161,5 +165,3 @@ All rights reserved.
 This module is free software;
 you can redistribute it and/or modify it
 under the same terms as Perl itself.
-
-=cut
